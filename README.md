@@ -1,37 +1,17 @@
-## Welcome to GitHub Pages
+# R Script for converting in-out data to interval by expanding the number of rows the data has
 
-You can use the [editor on GitHub](https://github.com/hobingzhao/in_out_to_interval/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## How to Use
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+intervalmaker.R contains the intervalmaker() function that you need.
 
-### Markdown
+NOTE: Currently maxIntervalLimit does nothing. Still in alpha. createBusyDensity and createBusyIndex does not work.
+??? write about error that happens with conflicting header
+- data: data frame to convert
+- colDtStart: string that is the header name of the start date/time. Input must be POSIXct
+- colDtEnd: string that is the header name of the end date/time. Input must be POSIXct
+- minSeconds = 3600: numeric. how long you want to slice the interval in seconds. Recommended: 900 (15mins), 1800 (30mins), 3600 (60mins)
+- boolShiftHalf: If TRUE, shifts the start and end date/times to minSeconds/2 to the right. This might help you prevent the data from being skewed to the left when presenting it because the timestamps are created by rounding down to the lowest minSeconds. If FALSE, does not shift the date/times.
+- createBusyDensity: creates a column ???
+- createBusyIndex: ???
+- maxIntervalLimit: Default is 24. ???
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/hobingzhao/in_out_to_interval/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
